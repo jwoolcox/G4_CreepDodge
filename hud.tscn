@@ -1,0 +1,173 @@
+[gd_scene load_steps=23 format=3 uid="uid://cmq7r6cip4k1a"]
+
+[ext_resource type="FontFile" uid="uid://c6ejrom1sk7n2" path="res://fonts/Xolonium-Regular.ttf" id="1_lyn20"]
+[ext_resource type="Script" path="res://hud.cs" id="1_yhs1g"]
+[ext_resource type="Texture2D" uid="uid://yivp7tqs501" path="res://art/Button_Blue_9Slides.png" id="3_l5661"]
+[ext_resource type="Texture2D" uid="uid://b5ou51i168ity" path="res://art/Button_Blue_9Slides_Pressed.png" id="4_jm88m"]
+[ext_resource type="Texture2D" uid="uid://bh3eibgtr8b4g" path="res://art/Arrow_Left.png" id="5_nns85"]
+[ext_resource type="Texture2D" uid="uid://d248joqiljfvj" path="res://art/Arrow_Right.png" id="6_w0sk1"]
+[ext_resource type="Texture2D" uid="uid://d22pjvso2fu5d" path="res://art/Arrow_Up.png" id="7_phy11"]
+[ext_resource type="Texture2D" uid="uid://dpow6qi03dg0k" path="res://art/Arrow_Down.png" id="8_rxr4x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0tfk4"]
+texture = ExtResource("3_l5661")
+texture_margin_left = 5.0
+texture_margin_right = 6.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7n8yv"]
+texture = ExtResource("3_l5661")
+texture_margin_left = 5.0
+texture_margin_right = 6.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3f24"]
+texture = ExtResource("4_jm88m")
+texture_margin_left = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srv2m"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_76rht"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_e3v66"]
+events = [SubResource("InputEventAction_76rht")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_op3r5"]
+texture = ExtResource("5_nns85")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uslnu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nu6dj"]
+texture = ExtResource("6_w0sk1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sglnv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onwlm"]
+texture = ExtResource("7_phy11")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro7ic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xtial"]
+texture = ExtResource("8_rxr4x")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03ah4"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_yhs1g")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_lyn20")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+custom_minimum_size = Vector2(480, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -79.5
+offset_right = 240.0
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_lyn20")
+theme_override_font_sizes/font_size = 64
+text = "Dodge the creeps!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -140.0
+offset_right = 131.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_lyn20")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_0tfk4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7n8yv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e3f24")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_srv2m")
+shortcut = SubResource("Shortcut_e3v66")
+text = "START!"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ButtonLeft" type="Button" parent="."]
+offset_left = 136.0
+offset_top = 536.0
+offset_right = 208.0
+offset_bottom = 608.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_op3r5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_op3r5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_op3r5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uslnu")
+action_mode = 0
+
+[node name="ButtonRight" type="Button" parent="."]
+offset_left = 263.0
+offset_top = 536.0
+offset_right = 335.0
+offset_bottom = 608.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_nu6dj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nu6dj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nu6dj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sglnv")
+action_mode = 0
+
+[node name="ButtonUp" type="Button" parent="."]
+offset_left = 198.0
+offset_top = 471.0
+offset_right = 270.0
+offset_bottom = 543.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_onwlm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_onwlm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onwlm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ro7ic")
+action_mode = 0
+
+[node name="ButtonDown" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 600.0
+offset_right = 272.0
+offset_bottom = 672.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_xtial")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xtial")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xtial")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_03ah4")
+action_mode = 0
+
+[connection signal="pressed" from="StartButton" to="." method="StartButtonPressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="MessageTimerTimeout"]
+[connection signal="button_down" from="ButtonLeft" to="." method="ButtonLeftDown"]
+[connection signal="button_up" from="ButtonLeft" to="." method="ButtonLeftUp"]
+[connection signal="button_down" from="ButtonRight" to="." method="ButtonRightDown"]
+[connection signal="button_up" from="ButtonRight" to="." method="ButtonRightUp"]
+[connection signal="button_down" from="ButtonUp" to="." method="ButtonUpDown"]
+[connection signal="button_up" from="ButtonUp" to="." method="ButtonUpUp"]
+[connection signal="button_down" from="ButtonDown" to="." method="ButtonDownDown"]
+[connection signal="button_up" from="ButtonDown" to="." method="ButtonDownUp"]
